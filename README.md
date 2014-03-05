@@ -61,6 +61,13 @@ Default: `8`
 
 The number of characters of the file hash to prefix the file name with.
 
+#### options.rename
+
+Type: `Boolean`
+Default: `true`
+
+In case no need to rewrite file names but handle the redirection using the webserver, set rename to false and it will only lead to rewriting the refrences without renaming the files
+
 ### Destination
 
 It will overwrite the `src` files if you don't specify a `dest`:

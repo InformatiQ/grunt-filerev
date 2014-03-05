@@ -10,7 +10,8 @@ module.exports = function (grunt) {
     var options = this.options({
       encoding: 'utf8',
       algorithm: 'md5',
-      length: 8
+      length: 8,
+      rename: true  
     });
     var target = this.target;
     var filerev = grunt.filerev || {summary: {}};
@@ -48,11 +49,15 @@ module.exports = function (grunt) {
 
         if (move) {
           dirname = path.dirname(file);
-          resultPath = path.resolve(dirname, newName);
+          if (options.rename === true){
+              resultPath = path.resolve(dirname, newName);
+          }
           fs.renameSync(file, resultPath);
         } else {
           dirname = el.dest;
-          resultPath = path.resolve(dirname, newName);
+          if (options.rename === true){
+              resultPath = path.resolve(dirname, newName);
+          }
           grunt.file.copy(file, resultPath);
         }
 
