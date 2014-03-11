@@ -49,16 +49,16 @@ module.exports = function (grunt) {
 
         if (move) {
           dirname = path.dirname(file);
+          resultPath = path.resolve(dirname, newName);
           if (options.rename === true){
-              resultPath = path.resolve(dirname, newName);
+              fs.renameSync(file, resultPath);
           }
-          fs.renameSync(file, resultPath);
         } else {
           dirname = el.dest;
+          resultPath = path.resolve(dirname, newName);
           if (options.rename === true){
-              resultPath = path.resolve(dirname, newName);
+              grunt.file.copy(file, resultPath);
           }
-          grunt.file.copy(file, resultPath);
         }
 
         filerev.summary[path.normalize(file)] = path.join(dirname, newName);
