@@ -44,7 +44,8 @@ module.exports = function (grunt) {
         var hash = crypto.createHash(options.algorithm).update(grunt.file.read(file), options.encoding).digest('hex');
         var suffix = hash.slice(0, options.length);
         var ext = path.extname(file);
-        var newName = [path.basename(file, ext), suffix, ext.slice(1)].join('.');
+        //var newName = [path.basename(file, ext), suffix, ext.slice(1)].join('.');
+        var newName = [path.basename(file), suffix].join('__');
         var resultPath;
 
         if (move) {
