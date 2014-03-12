@@ -45,7 +45,7 @@ module.exports = function (grunt) {
         var suffix = hash.slice(0, options.length);
         var ext = path.extname(file);
         //var newName = [path.basename(file, ext), suffix, ext.slice(1)].join('.');
-        var newName = [path.basename(file), suffix].join('__');
+        var newName = [path.basename(file), suffix].join('?');
         var resultPath;
 
         if (move) {
